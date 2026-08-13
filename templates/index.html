@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Startup Profit Prediction</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+padding:20px;
+}
+
+.card{
+width:100%;
+max-width:520px;
+background:#fff;
+padding:35px;
+border-radius:20px;
+box-shadow:0 20px 50px rgba(0,0,0,.35);
+animation:fade .6s ease;
+}
+
+@keyframes fade{
+from{opacity:0;transform:translateY(30px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+
+
+h1{
+text-align:center;
+margin-top:15px;
+color:#1f2937;
+}
+
+p{
+text-align:center;
+color:#666;
+margin:10px 0 25px;
+font-size:14px;
+}
+
+.form-group{
+margin-bottom:18px;
+}
+
+label{
+display:block;
+font-weight:600;
+margin-bottom:8px;
+color:#333;
+}
+
+input,
+select{
+width:100%;
+height:50px;
+padding:12px 15px;
+border:2px solid #ddd;
+border-radius:10px;
+font-size:15px;
+outline:none;
+transition:.3s;
+}
+
+input:focus,
+select:focus{
+border-color:#0072ff;
+}
+
+button{
+width:100%;
+height:52px;
+border:none;
+border-radius:10px;
+background:linear-gradient(135deg,#00c6ff,#0072ff);
+color:#fff;
+font-size:17px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:translateY(-2px);
+box-shadow:0 12px 25px rgba(0,114,255,.35);
+}
+
+.result{
+margin-top:25px;
+padding:20px;
+border-radius:15px;
+background:#eef7ff;
+border:1px solid #b7d8ff;
+text-align:center;
+}
+
+.result h2{
+font-size:16px;
+color:#555;
+margin-bottom:10px;
+}
+
+.result h1{
+font-size:34px;
+color:#16a34a;
+margin:0;
+word-break:break-word;
+}
+
+.footer{
+margin-top:25px;
+text-align:center;
+font-size:14px;
+color:#666;
+}
+
+.footer span{
+font-weight:600;
+color:#0072ff;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+
+<h1>Startup Profit Prediction</h1>
+
+<p>Multiple Linear Regression Web Application</p>
+
+<form action="/predict" method="POST">
+
+<div class="form-group">
+<label>R&D Spend</label>
+<input
+type="number"
+step="any"
+name="R&D"
+placeholder="Enter R&D Spend"
+required>
+</div>
+
+<div class="form-group">
+<label>Administration</label>
+<input
+type="number"
+step="any"
+name="Administration"
+placeholder="Enter Administration"
+required>
+</div>
+
+<div class="form-group">
+<label>Marketing Spend</label>
+<input
+type="number"
+step="any"
+name="Marketing Spend"
+placeholder="Enter Marketing Spend"
+required>
+</div>
+
+<div class="form-group">
+<label>State</label>
+
+<select name="State" required>
+
+<option value="" disabled selected>Select State</option>
+
+<option value="New York">New York</option>
+
+<option value="California">California</option>
+
+<option value="Florida">Florida</option>
+
+</select>
+
+</div>
+
+<button type="submit">
+Predict Profit
+</button>
+
+</form>
+
+{% if prediction_text %}
+
+<div class="result">
+
+<h2>Predicted Profit</h2>
+
+<h1>{{ prediction_text }}</h1>
+
+</div>
+
+{% endif %}
+
+<div class="footer">
+
+Machine Learning Project ❤️ <br>
+
+<span>By Anu</span>
+
+</div>
+
+</div>
+
+</body>
+</html>
